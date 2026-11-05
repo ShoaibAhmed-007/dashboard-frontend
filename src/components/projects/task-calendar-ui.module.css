@@ -1,0 +1,389 @@
+.root {
+  border: 1px solid #eaecf0;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #f2f4f7;
+}
+
+.nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 34px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #344054;
+  transition: all 0.2s ease;
+}
+
+.navButton:hover {
+  border-color: #98a2b3;
+  background: #f9fafb;
+}
+
+.todayButton {
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.todayButton:hover {
+  border-color: #98a2b3;
+  background: #f9fafb;
+}
+
+.selection {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selectControl {
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  padding: 0 10px;
+  background: #ffffff;
+  color: #101828;
+  font-size: 13px;
+  font-weight: 500;
+  min-width: 108px;
+}
+
+/* ── FullCalendar grid overrides ── */
+
+.root :global(.fc.fc-media-screen) {
+  min-height: 0 !important;
+}
+
+.root :global(.fc-dayGridMonth-view.fc-view.fc-daygrid) {
+  min-width: 0 !important;
+}
+
+.root :global(.fc .fc-view-harness) {
+  overflow-x: auto;
+}
+
+.root :global(.fc .fc-scrollgrid) {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+.root :global(.fc-theme-standard td),
+.root :global(.fc-theme-standard th),
+.root :global(.fc-theme-standard .fc-scrollgrid) {
+  border-color: #eaecf0;
+}
+
+.root :global(.fc .fc-scrollgrid-section-header th) {
+  background: #f9fafb;
+}
+
+.root :global(.fc .fc-col-header-cell-cushion) {
+  display: block;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #667085;
+  text-transform: uppercase;
+}
+
+.root :global(.fc .fc-daygrid-day-frame) {
+  min-height: 100px;
+  padding-bottom: 6px;
+}
+
+.root :global(.fc .fc-daygrid-day-top) {
+  justify-content: flex-end;
+}
+
+.root :global(.fc .fc-daygrid-day-number) {
+  padding: 6px 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #344054;
+  text-decoration: none;
+}
+
+.root :global(.fc .fc-day-other) {
+  background: #fcfcfd;
+}
+
+.root :global(.fc .fc-day-other .fc-daygrid-day-number) {
+  color: #98a2b3;
+}
+
+.root :global(.fc .fc-daygrid-day.fc-day-today) {
+  background: #f2f4ff !important;
+  border: 1px solid #000000 !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+/* ── Event harness spacing ── */
+.root :global(.fc .fc-daygrid-event-harness) {
+  margin-top: 0px;
+}
+
+.root :global(.fc .fc-daygrid-event-harness + .fc-daygrid-event-harness) {
+  margin-top: 4px;
+}
+
+/* ── Strip ALL default FullCalendar event styles ── */
+.root :global(.fc .fc-daygrid-event),
+.root :global(.fc .fc-daygrid-block-event) {
+  border: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 2px !important;
+}
+
+/* Continued events (not start) flush left */
+.root :global(.fc .fc-daygrid-event:not(.fc-event-start)) {
+  margin-left: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Events continuing right flush right */
+.root :global(.fc .fc-daygrid-event:not(.fc-event-end)) {
+  margin-right: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* fc-event-main is the real content area — make it block and full-width */
+.root :global(.fc .fc-event-main) {
+  display: flex !important;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #344054;
+  cursor: pointer;
+}
+
+/* ── Tone backgrounds applied via eventClassNames ── */
+.root :global(.fc-task-tone-red .fc-event-main)    { background: #f2f4f7; border-left: 3px solid #f04438; }
+.root :global(.fc-task-tone-amber .fc-event-main)  { background: #f2f4f7; border-left: 3px solid #f79009; }
+.root :global(.fc-task-tone-blue .fc-event-main)   { background: #f2f4f7; border-left: 3px solid #2e90fa; }
+.root :global(.fc-task-tone-purple .fc-event-main) { background: #f2f4f7; border-left: 3px solid #7a5af8; }
+.root :global(.fc-task-tone-slate .fc-event-main)  { background: #f2f4f7; border-left: 3px solid #98a2b3; }
+
+/* Remove left border on continuation segments */
+.root :global(.fc-daygrid-event:not(.fc-event-start) .fc-event-main) {
+  border-left: none !important;
+}
+
+/* ── Dot for single-day events ── */
+.root :global(.taskEventDot) {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.root :global(.taskEventDot-red)    { background: #f04438; }
+.root :global(.taskEventDot-amber)  { background: #f79009; }
+.root :global(.taskEventDot-blue)   { background: #2e90fa; }
+.root :global(.taskEventDot-purple) { background: #7a5af8; }
+.root :global(.taskEventDot-slate)  { background: #98a2b3; }
+
+/* ── Title ── */
+.root :global(.taskEventTitle) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: #344054;
+}
+
+/* ── "+ N MORE" link ── */
+.root :global(.fc .fc-daygrid-more-link) {
+  display: inline-block;
+  margin: 4px 8px 2px;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6366f1;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+
+.root :global(.fc .fc-daygrid-more-link:hover) {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+/* ── Dark mode ── */
+:global(.dark) .root {
+  background: #191919;
+  border-color: #2a2a2a !important;
+}
+
+:global(.dark) .toolbar {
+  border-bottom-color: #2a2a2a;
+}
+
+:global(.dark) .navButton {
+  background: #191919;
+  border-color: #2a2a2a;
+  color: #d1d5db;
+}
+
+:global(.dark) .navButton:hover {
+  background: #1f2937;
+  border-color: #2a2a2a;
+}
+
+:global(.dark) .todayButton {
+  background: #191919;
+  border-color: #2a2a2a;
+  color: #d1d5db;
+}
+
+:global(.dark) .todayButton:hover {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+:global(.dark) .selectControl {
+  background: #191919;
+  border-color: #2a2a2a;
+  color: #f3f4f6;
+}
+
+:global(.dark) .root :global(.fc-theme-standard td),
+:global(.dark) .root :global(.fc-theme-standard th),
+:global(.dark) .root :global(.fc-theme-standard .fc-scrollgrid) {
+  border-color: #1f2937;
+}
+
+:global(.dark) .root :global(.fc .fc-scrollgrid-section-header th) {
+  background: #111111;
+}
+
+:global(.dark) .root :global(.fc .fc-col-header-cell-cushion) {
+  color: #9ca3af;
+}
+
+:global(.dark) .root :global(.fc .fc-daygrid-day-number) {
+  color: #d1d5db;
+}
+
+:global(.dark) .root :global(.fc .fc-day-other) {
+  background: #111111;
+}
+
+:global(.dark) .root :global(.fc .fc-day-other .fc-daygrid-day-number) {
+  color: #6b7280;
+}
+
+:global(.dark) .root :global(.fc .fc-daygrid-day.fc-day-today) {
+  background: transparent !important;
+  border: 1px solid #e5e7eb !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+/* First (Sunday) and last (Saturday) columns match the sidebar background.
+   !important is required because this must win over both `.fc-day-other`
+   (dimmed non-current-month cells) and the plain (non-today) grid background,
+   which share the same specificity and would otherwise fight on source order. */
+.root :global(.fc-daygrid-day.fc-day-sun):not(:global(.fc-day-today)),
+.root :global(.fc-daygrid-day.fc-day-sat):not(:global(.fc-day-today)),
+.root :global(.fc-col-header-cell.fc-day-sun),
+.root :global(.fc-col-header-cell.fc-day-sat) {
+  background: #f9f9f9 !important;
+}
+
+:global(.dark) .root :global(.fc-daygrid-day.fc-day-sun):not(:global(.fc-day-today)),
+:global(.dark) .root :global(.fc-daygrid-day.fc-day-sat):not(:global(.fc-day-today)),
+:global(.dark) .root :global(.fc-col-header-cell.fc-day-sun),
+:global(.dark) .root :global(.fc-col-header-cell.fc-day-sat) {
+  background: #191919 !important;
+}
+
+:global(.dark) .root :global(.fc .fc-event-main) {
+  color: #e5e7eb;
+}
+
+:global(.dark) .root :global(.fc-task-tone-red .fc-event-main)    { background: #1f2937; border-left: 3px solid #f04438; }
+:global(.dark) .root :global(.fc-task-tone-amber .fc-event-main)  { background: #1f2937; border-left: 3px solid #f79009; }
+:global(.dark) .root :global(.fc-task-tone-blue .fc-event-main)   { background: #1f2937; border-left: 3px solid #2e90fa; }
+:global(.dark) .root :global(.fc-task-tone-purple .fc-event-main) { background: #1f2937; border-left: 3px solid #7a5af8; }
+:global(.dark) .root :global(.fc-task-tone-slate .fc-event-main)  { background: #1f2937; border-left: 3px solid #6b7280; }
+
+:global(.dark) .root :global(.taskEventTitle) {
+  color: #d1d5db;
+}
+
+:global(.dark) .root :global(.fc .fc-daygrid-more-link) {
+  color: #818cf8;
+}
+
+:global(.dark) .root :global(.fc .fc-daygrid-more-link:hover) {
+  background: #312e81;
+  color: #a5b4fc;
+}
+
+@media (max-width: 1024px) {
+  .root :global(.fc .fc-daygrid-day-frame) {
+    min-height: 78px;
+  }
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .selectControl {
+    width: 100%;
+    min-width: 0;
+  }
+}
